@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔥 TOO MUCH DAY 🔥</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hot-pink: #FF2D87;
+    --electric-yellow: #FFE600;
+    --vivid-orange: #FF6B2B;
+    --acid-green: #7FFF00;
+    --electric-blue: #00D4FF;
+    --deep-purple: #6B00FF;
+    --bg-dark: #0D0D0D;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-dark);
+    color: var(--white);
+    font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Animated background */
+  .bg-pattern {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255, 45, 135, 0.03) 40px,
+        rgba(255, 45, 135, 0.03) 80px
+      );
+    pointer-events: none;
+  }
+
+  .floating-emoji {
+    position: fixed;
+    font-size: 2rem;
+    opacity: 0.15;
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .floating-emoji:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+  .floating-emoji:nth-child(2) { top: 30%; right: 8%; animation-delay: 1.5s; font-size: 3rem; }
+  .floating-emoji:nth-child(3) { top: 60%; left: 12%; animation-delay: 3s; }
+  .floating-emoji:nth-child(4) { top: 80%; right: 15%; animation-delay: 4.5s; font-size: 2.5rem; }
+  .floating-emoji:nth-child(5) { top: 45%; left: 80%; animation-delay: 2s; }
+  .floating-emoji:nth-child(6) { top: 15%; left: 45%; animation-delay: 5s; font-size: 2.8rem; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(5deg); }
+    50% { transform: translateY(-10px) rotate(-3deg); }
+    75% { transform: translateY(-25px) rotate(4deg); }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+  }
+
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .date-badge {
+    display: inline-block;
+    background: var(--electric-yellow);
+    color: var(--bg-dark);
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1rem;
+    padding: 8px 24px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+    animation: pulse-badge 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-badge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 230, 0, 0.4); }
+  }
+
+  .hero-title {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: clamp(3.5rem, 12vw, 6rem);
+    line-height: 1;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--hot-pink), var(--vivid-orange), var(--electric-yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 40px rgba(255, 45, 135, 0.3));
+    animation: title-glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes title-glow {
+    0% { filter: drop-shadow(0 0 40px rgba(255, 45, 135, 0.3)); }
+    100% { filter: drop-shadow(0 0 60px rgba(255, 107, 43, 0.5)); }
+  }
+
+  .hero-subtitle {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    line-height: 1.1;
+    background: linear-gradient(135deg, var(--electric-yellow), var(--acid-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
+
+  .hero-emoji-row {
+    font-size: 2rem;
+    letter-spacing: 8px;
+    margin-bottom: 28px;
+    animation: bounce-row 1.5s ease-in-out infinite;
+  }
+
+  @keyframes bounce-row {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  /* Intro Card */
+  .intro-card {
+    background: linear-gradient(135deg, rgba(255, 45, 135, 0.1), rgba(107, 0, 255, 0.1));
+    border: 1px solid rgba(255, 45, 135, 0.25);
+    border-radius: 20px;
+    padding: 32px 28px;
+    margin-bottom: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .intro-card::before {
+    content: '?';
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-size: 8rem;
+    opacity: 0.06;
+    font-family: 'Dela Gothic One', sans-serif;
+    color: var(--hot-pink);
+  }
+
+  .intro-card p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.88);
+    position: relative;
+    z-index: 1;
+    word-break: keep-all;
+  }
+
+  .intro-card .highlight {
+    color: var(--electric-yellow);
+    font-weight: 700;
+  }
+
+  .intro-card .bold-line {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--hot-pink);
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+
+  /* Info Grid */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  .info-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px 18px;
+    transition: transform 0.2s, border-color 0.3s;
+  }
+
+  .info-item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 45, 135, 0.3);
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .info-value {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.2rem;
+    color: var(--white);
+  }
+
+  .info-value .accent-pink { color: var(--hot-pink); }
+  .info-value .accent-yellow { color: var(--electric-yellow); }
+  .info-value .accent-blue { color: var(--electric-blue); }
+  .info-value .accent-green { color: var(--acid-green); }
+
+  /* Section */
+  .section {
+    margin-bottom: 36px;
+  }
+
+  /* Goal Cards */
+  .goal-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .goal-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+    background: rgba(255, 230, 0, 0.04);
+    border: 1px solid rgba(255, 230, 0, 0.1);
+    border-radius: 14px;
+    transition: transform 0.2s, border-color 0.3s;
+  }
+
+  .goal-item:hover {
+    transform: translateX(4px);
+    border-color: rgba(255, 230, 0, 0.25);
+  }
+
+  .goal-num {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 1.4rem;
+    color: rgba(255, 230, 0, 0.25);
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .goal-item strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .goal-item p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+
+  /* Norms */
+  .norms-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .norms-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 18px;
+    background: rgba(0, 212, 255, 0.03);
+    border: 1px solid rgba(0, 212, 255, 0.08);
+    border-radius: 14px;
+    transition: transform 0.2s, border-color 0.3s;
+  }
+
+  .norms-list li:hover {
+    transform: translateX(4px);
+    border-color: rgba(0, 212, 255, 0.2);
+  }
+
+  .norm-emoji {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .norms-list li strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--electric-blue);
+    margin-bottom: 4px;
+  }
+
+  .norms-list li p {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+
+  /* Method Steps */
+  .method-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .method-step {
+    padding: 20px;
+    background: rgba(127, 255, 0, 0.03);
+    border: 1px solid rgba(127, 255, 0, 0.08);
+    border-radius: 14px;
+    transition: transform 0.2s, border-color 0.3s;
+  }
+
+  .method-step:hover {
+    transform: translateX(4px);
+    border-color: rgba(127, 255, 0, 0.2);
+  }
+
+  .method-time {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 0.85rem;
+    color: var(--acid-green);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .method-content h4 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.05rem;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .method-content p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.75;
+    word-break: keep-all;
+  }
+
+  .method-content em {
+    color: rgba(255, 255, 255, 0.45);
+    font-style: italic;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .section-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .section-icon.pink { background: rgba(255, 45, 135, 0.15); }
+  .section-icon.yellow { background: rgba(255, 230, 0, 0.15); }
+  .section-icon.blue { background: rgba(0, 212, 255, 0.15); }
+  .section-icon.green { background: rgba(127, 255, 0, 0.15); }
+  .section-icon.purple { background: rgba(107, 0, 255, 0.15); }
+
+  .section-title {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* Checklist */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border-left: 3px solid var(--hot-pink);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    word-break: keep-all;
+  }
+
+  .checklist li .check {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 2px solid rgba(255, 45, 135, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+
+  /* Flow Section */
+  .flow-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .flow-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 0;
+    position: relative;
+  }
+
+  .flow-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 56px;
+    bottom: -2px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--hot-pink), transparent);
+  }
+
+  .flow-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--hot-pink), var(--vivid-orange));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1rem;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .flow-content h4 {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+    color: var(--electric-yellow);
+  }
+
+  .flow-content p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.6;
+    word-break: keep-all;
+  }
+
+  /* Awards */
+  .awards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .award-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 18px 12px;
+    text-align: center;
+    transition: transform 0.2s, background 0.3s;
+  }
+
+  .award-card:hover {
+    transform: translateY(-4px) rotate(-1deg);
+    background: rgba(255, 45, 135, 0.08);
+  }
+
+  .award-emoji {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .award-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+    word-break: keep-all;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    margin-top: 48px;
+    padding: 40px 24px;
+    background: linear-gradient(135deg, rgba(255, 45, 135, 0.08), rgba(255, 107, 43, 0.08), rgba(255, 230, 0, 0.08));
+    border-radius: 24px;
+    border: 1px solid rgba(255, 45, 135, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '🔥';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 3rem;
+    opacity: 0.15;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .cta-section::after {
+    content: '🔥';
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 3rem;
+    opacity: 0.15;
+    animation: float 4s ease-in-out infinite 2s;
+  }
+
+  .cta-text {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    word-break: keep-all;
+  }
+
+  .cta-text .gradient-text {
+    background: linear-gradient(135deg, var(--hot-pink), var(--electric-yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cta-sub {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 45, 135, 0.3), transparent);
+    margin: 36px 0;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .footer p {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.3);
+    line-height: 1.6;
+  }
+
+  .footer .brand {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 4px;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .container { padding: 28px 16px 48px; }
+    .info-grid { grid-template-columns: 1fr; }
+    .awards-grid { grid-template-columns: 1fr 1fr; }
+    .intro-card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-pattern"></div>
+<div class="floating-emoji">👗</div>
+<div class="floating-emoji">🕶️</div>
+<div class="floating-emoji">💃</div>
+<div class="floating-emoji">🔥</div>
+<div class="floating-emoji">✨</div>
+<div class="floating-emoji">🎭</div>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="date-badge">2025. 3. 27 FRIDAY</div>
+    <h1 class="hero-title">TOO MUCH</h1>
+    <h2 class="hero-subtitle">DAY</h2>
+    <div class="hero-emoji-row">👔🧥👗🕶️🎩👠</div>
+  </div>
+
+  <!-- Intro -->
+  <div class="intro-card">
+    <p>
+      혹시 옷장에 <span class="highlight">"이건 좀 투 머치하지 않아?"</span> 하면서
+      꺼내지도 못 한 옷이 있지 않으신가요?<br><br>
+      그리고 그 옷과 함께 하기에는 너무나 투 머치한 스타일링이 있으시진 않나요?<br><br>
+      <span class="bold-line">오늘 하루는 다 괜찮습니다!</span>
+      어쩌면 실패가 아닐지도 모릅니다.<br>
+      실패하면 어떤가요! 어떤 일이 일어나는지도 봅시다!
+    </p>
+  </div>
+
+  <!-- Info Grid -->
+  <div class="info-grid">
+    <div class="info-item">
+      <div class="info-label">날짜</div>
+      <div class="info-value"><span class="accent-pink">3월 27일</span> 금요일</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">소요 시간</div>
+      <div class="info-value"><span class="accent-yellow">하루 종일</span> 🔥</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">대상</div>
+      <div class="info-value"><span class="accent-blue">전체 러너</span></div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">장소</div>
+      <div class="info-value"><span class="accent-green">아카데미</span> 오프라인</div>
+    </div>
+  </div>
+
+  <!-- 활동 목표 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon yellow">🎯</div>
+      <h3 class="section-title">활동 목표</h3>
+    </div>
+    <div class="goal-card">
+      <div class="goal-item">
+        <span class="goal-num">01</span>
+        <div>
+          <strong style="color:var(--electric-yellow)">자기표현의 심리적 안전지대 넓히기</strong>
+          <p>"이건 좀 오버 아닐까?" 하며 스스로 제한해온 표현의 경계를 실험해봅니다. 패션을 매개로 '과하다'와 '나답다' 사이의 거리를 체감합니다.</p>
+        </div>
+      </div>
+      <div class="goal-item">
+        <span class="goal-num">02</span>
+        <div>
+          <strong style="color:var(--electric-yellow)">실패를 가볍게 경험하는 연습</strong>
+          <p>투 머치한 시도가 어색하거나 실패하더라도 괜찮은 환경을 함께 만들어, '실패해도 별일 없다'는 감각을 몸으로 익힙니다.</p>
+        </div>
+      </div>
+      <div class="goal-item">
+        <span class="goal-num">03</span>
+        <div>
+          <strong style="color:var(--electric-yellow)">서로 다른 '과함'을 존중하는 커뮤니티 만들기</strong>
+          <p>각자의 투 머치가 다르다는 것을 인정하고, 솔직한 감상과 응원을 주고받으며 러너 간 신뢰를 쌓습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Norms -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon blue">🤝</div>
+      <h3 class="section-title">Norms — 우리만의 규칙</h3>
+    </div>
+    <ul class="norms-list">
+      <li>
+        <span class="norm-emoji">🚫</span>
+        <div>
+          <strong>비교 금지, 평가 금지</strong>
+          <p>"누가 더 잘했다"가 아니라 "각자의 투 머치가 다르다"가 이 날의 전제입니다.</p>
+        </div>
+      </li>
+      <li>
+        <span class="norm-emoji">💬</span>
+        <div>
+          <strong>솔직하되, 따뜻하게</strong>
+          <p>감상은 솔직하게 나누되, 상대를 존중하는 말로 전달합니다. "재밌다", "용기 있다", "이런 면이 있었구나" 같은 표현을 추천!</p>
+        </div>
+      </li>
+      <li>
+        <span class="norm-emoji">📸</span>
+        <div>
+          <strong>사진 공유는 상대 동의 하에</strong>
+          <p>하루 동안 사진을 많이 찍되, SNS나 외부 공유는 반드시 본인의 허락을 받아주세요.</p>
+        </div>
+      </li>
+      <li>
+        <span class="norm-emoji">🙌</span>
+        <div>
+          <strong>참여 자체가 100점</strong>
+          <p>화려함의 정도가 아니라, 용기를 내 참여한 것 자체를 응원합니다. 조금의 변화도 '투 머치'입니다.</p>
+        </div>
+      </li>
+      <li>
+        <span class="norm-emoji">🎭</span>
+        <div>
+          <strong>오늘의 나를 즐기기</strong>
+          <p>민망하면 민망한 대로, 신나면 신나는 대로 — 감정을 숨기지 말고 그대로 즐겨주세요.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 활동 방법 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon green">📋</div>
+      <h3 class="section-title">활동 방법</h3>
+    </div>
+    <div class="method-steps">
+      <div class="method-step">
+        <div class="method-time">🌅 오전</div>
+        <div class="method-content">
+          <h4>투 머치 등장 & 첫인상 타임</h4>
+          <p>각자 준비한 '투 머치' 패션으로 아카데미에 등장합니다. 서로의 스타일을 감상하며 첫인상을 가볍게 이야기해봅니다. <em>"우와 이 조합 어떻게 생각한 거야?"</em> 같은 대화로 시작해보세요.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="method-time">☀️ 낮</div>
+        <div class="method-content">
+          <h4>투 머치 일상 보내기</h4>
+          <p>평소와 똑같이 학습하고, 밥 먹고, 돌아다니되 — 단 하나, 오늘의 패션 그대로! 자연스럽게 사진을 많이 찍으며 하루를 기록합니다. 투 머치한 내 모습으로 보내는 평범한 일상이 어떤 느낌인지 관찰해보세요.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="method-time">🌇 오후</div>
+        <div class="method-content">
+          <h4>솔직한 감상 나누기</h4>
+          <p>하루 동안 느낀 점을 서로 나눠봅니다. <em>"처음엔 민망했는데 오후엔 괜찮아졌다"</em>, <em>"나도 이런 옷을 입을 수 있구나"</em> — 어떤 감상이든 좋습니다. 서로 돌아가며 이야기를 나눠주세요.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="method-time">🏆 마무리</div>
+        <div class="method-content">
+          <h4>월간 투 머치 어워즈</h4>
+          <p>간단한 시상식을 진행합니다 (가장 투머치한 룩, 가장 적극적인 포즈, 가장 재미있는 순간 등). 마지막으로 함께한 러너들에게 서로 응원의 한 마디를 남기며 하루를 마무리합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 준비물 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon pink">🎒</div>
+      <h3 class="section-title">준비물</h3>
+    </div>
+    <ul class="checklist">
+      <li>
+        <span class="check"></span>
+        내가 가진 옷 중 가장 <strong style="color:var(--hot-pink)">투 머치</strong>한 패션<br>
+        <span style="font-size:0.85rem;color:rgba(255,255,255,0.5)">(화려한 색상, 과장된 스타일, 컨셉 있는 옷 등)</span>
+      </li>
+      <li>
+        <span class="check"></span>
+        아이폰 📱
+      </li>
+    </ul>
+  </div>
+
+
+
+  <!-- Awards -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon purple">🏆</div>
+      <h3 class="section-title">월간 투 머치 어워즈</h3>
+    </div>
+    <div class="awards-grid">
+      <div class="award-card">
+        <span class="award-emoji">👑</span>
+        <span class="award-name">가장 투머치한 룩</span>
+      </div>
+      <div class="award-card">
+        <span class="award-emoji">💥</span>
+        <span class="award-name">가장 적극적인 포즈</span>
+      </div>
+      <div class="award-card">
+        <span class="award-emoji">😂</span>
+        <span class="award-name">가장 재미있는 순간</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <p class="cta-text">
+      여러분의 하루를 공유해주세요.<br>
+      여러분의 생각을 나누어주세요.<br>
+      저희와 같이 <span class="gradient-text">투 머치</span>하게 보내보아요!
+    </p>
+    <p class="cta-sub">
+      시니어 러너를 포함한 모든 러너분들의 참여를 환영합니다 🙌
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p class="brand">Apple Developer Academy @ POSTECH</p>
+    <p>오늘 하루, 과하게 빛나도 괜찮아요 ✨</p>
+  </div>
+
+</div>
+</body>
+</html>
